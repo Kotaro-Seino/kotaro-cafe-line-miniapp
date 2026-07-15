@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>こたろうカフェ</title>
+  <meta name="description" content="こたろうカフェのLINEミニアプリ向け会員証デモ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow" id="eyebrow"></p>
+        <h1 id="app-title"></h1>
+        <p class="hero-description" id="hero-description"></p>
+      </div>
+      <div class="hero-panel">
+        <div class="status-stack" id="status-stack"></div>
+        <button class="primary-button" id="primary-action" type="button"></button>
+      </div>
+    </header>
+
+    <main class="content-grid">
+      <section class="card member-card-section wide-card">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Member Card</p>
+            <h2>会員証</h2>
+          </div>
+          <span class="pill" id="member-tier-pill"></span>
+        </div>
+        <div class="member-card-layout">
+          <div class="member-card-visual" id="member-card-visual"></div>
+          <div class="member-card-side">
+            <div class="member-facts" id="member-facts"></div>
+            <ul class="benefit-list" id="benefit-list"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card profile-card">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Account</p>
+            <h2>ご利用状況</h2>
+          </div>
+          <span class="pill" id="environment-pill"></span>
+        </div>
+        <div class="profile-summary" id="profile-summary"></div>
+        <div class="action-row">
+          <button class="secondary-button" id="login-button" type="button">LINEでログイン</button>
+          <button class="ghost-button" id="member-button" type="button">会員情報を確認</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Flow</p>
+            <h2>ご利用の流れ</h2>
+          </div>
+        </div>
+        <ol class="flow-list" id="flow-list"></ol>
+      </section>
+
+      <section class="card wide-card">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Actions</p>
+            <h2>メニュー</h2>
+          </div>
+        </div>
+        <div class="action-grid" id="action-grid"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Support</p>
+            <h2>ご案内</h2>
+          </div>
+        </div>
+        <ul class="notice-list" id="notice-list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="member-dialog" id="member-dialog">
+    <form class="dialog-panel" id="member-form" method="dialog">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-label">Member</p>
+          <h2>会員情報の確認</h2>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <p class="dialog-copy" id="member-copy"></p>
+
+      <label class="field">
+        <span>会員番号</span>
+        <input id="member-id" name="memberId" type="text" inputmode="numeric" placeholder="例: 12345678">
+      </label>
+
+      <label class="field">
+        <span>電話番号の下4桁</span>
+        <input id="member-phone" name="memberPhone" type="text" inputmode="numeric" maxlength="4" placeholder="例: 1234">
+      </label>
+
+      <div class="dialog-actions">
+        <button class="ghost-button" id="skip-member" type="button">あとで設定</button>
+        <button class="primary-button" id="save-member" type="submit">会員証を表示</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="./assets/content.js"></script>
+  <script src="./assets/config.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
